@@ -1,0 +1,27 @@
+provider "azurerm" {
+  features {}
+}
+
+## Create Resource Group ##
+resource "azurerm_resource_group" "integrated-service-env" {
+  name = join("-", ["RG", var.prefix,"GRP",var.environment,"ISE"])
+  location = var.location
+  tags = var.tags
+}
+
+resource "azurerm_integration_service_environment" "integrated-service-env" {
+
+  name                 = join("-", ["ISE", var.prefix,var.environment])
+  location             = azurerm_resource_group.integrated-service-env.location
+  resource_group_name  = azurerm_resource_group.integrated-service-env.name
+  sku_name             = join("_", [var.sku_name[0],var.sku_capacity])
+  access_endpoint_type = var.access_endpoint
+  tags = var.tags
+  virtual_network_subnet_ids = [
+    data.azurerm_subnet.existing_subnet_1.id,
+    data.azurerm_subnet.existing_subnet_2.id,
+    data.azurerm_subnet.existing_subnet_3.id,
+    data.azurerm_subnet.existing_subnet_4.id,
+    
+  ]
+}
