@@ -1,0 +1,34 @@
+#Declaring variable for data source to access information about an existing Subnet1 within a Vnet#
+data "azurerm_subnet" "existing_subnet1" {
+     virtual_network_name = var.existing_vnet_name  
+     name     = var.existing_subnet1_name
+    resource_group_name = var.existing_rg_name
+}
+
+
+#Declaring variable for data source to access information about an existing Subnet2 within a Vnet#
+data "azurerm_subnet" "existing_subnet2" {
+    virtual_network_name = var.existing_vnet_name
+    name     = var.existing_subnet2_name
+    resource_group_name = var.existing_rg_name
+}
+
+#Declaring variable for data source to access information about an existing Subnet3 within a Vnet#
+
+data "azurerm_subnet" "existing_subnet3" {
+    virtual_network_name = var.existing_vnet_name
+    name     = var.existing_subnet3_name
+    resource_group_name = var.existing_rg_name
+}
+
+
+
+#Declaring variable for data source to access information about an existing Subnet4 within a Vnet#
+data "azurerm_subnet" "existing_subnet4" {
+    virtual_network_name = var.existing_vnet_name
+    name                 = var.existing_subnet4_name
+    resource_group_name  = var.existing_rg_name
+}
+
+
+

@@ -1,0 +1,97 @@
+##Declaring variable for prefixing the resources ##
+
+variable "prefix" {
+  description = "The prefix used for all resources"
+   default = "TSG-AIP"
+}
+
+##Declaring variable for environment in which resources would be created ##
+
+variable "environment" {
+  description = "The environement used for all resources"
+   default = "DEV"
+}
+
+##Declaring variable for location##
+
+variable "location" {
+  default = "East US 2"
+  description = "The Azure location where all resources will be created"
+}
+
+##Declaring variable for tags##
+
+variable "tags" {
+    type = map
+    default = {
+        
+            Tier= "Development"
+            Department= "TSG"
+            Owner = "TSGCloudOps"
+            CaseCode= "s4du"
+            ManagedWith ="Terraform"
+            Application ="ISE"
+    }
+}
+#Declaring variable for sku name##
+variable "sku_name" {
+    type = list
+    description = "Sku name for ISE"
+    default = ["Developer","Premium"]
+}
+
+#Declaring variable for sku capacity ##
+variable "sku_capacity" {
+    
+    description = "Sku capacity for ISE"
+    default = "0"
+}
+
+#Declaring variable for access endpoint ##
+variable "access_endpoint" {
+    description = "access endpoint  for ISE"
+    default = "Internal"
+}
+
+
+
+#Declaring variable for existing subnet-1 name ##
+variable "existing_subnet1_name"{
+     description = "Existing subnet-1 created for ISE"
+     default = "sn1-tsg-aip-ISE"
+}
+
+
+#Declaring variable for existing subnet-2 name ##
+variable "existing_subnet2_name"{
+     description = "Existing subnet-2 created for ISE"
+     default = "sn2-tsg-aip-ISE"
+}
+
+
+#Declaring variable for existing subnet-3 name ##
+variable "existing_subnet3_name"{
+     description = "Existing subnet-3 created for ISE"
+     default = "sn3-tsg-aip-ISE"
+}
+
+
+#Declaring variable for existing subnet-4 name ##
+variable "existing_subnet4_name"{
+     description = "Existing subnet-4 created for ISE"
+     default = "sn4-tsg-aip-ISE"
+}
+
+
+#Declaring variable for existing Vnet name ##
+ variable "existing_vnet_name"{
+     description = "Resource group for existing subnets created for ISE"
+     default = "vn-tsg-aip"
+}
+
+
+#Declaring variable for existing resource group name ##
+ variable "existing_rg_name"{
+     description = "Resource group for existing subnets created for ISE"
+     default = "rg-tsg-aip-grp-sample"
+}
