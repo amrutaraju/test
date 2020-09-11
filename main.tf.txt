@@ -7,6 +7,7 @@ resource "azurerm_resource_group" "integrated-service-env" {
   name = join("-", ["RG", var.prefix,"GRP",var.environment,"ISE"])
   location = var.location
   tags = var.tags
+  
 }
 
 resource "azurerm_integration_service_environment" "integrated-service-env" {
